@@ -1,100 +1,157 @@
+/* ================================
+   Global Styles
+   ================================ */
 body { 
   font-family: Arial, sans-serif; 
-  margin:0; 
-  padding:0; 
-  background:#f7f7f7; 
-  color:#111; 
-  cursor: none;
+  margin: 0; 
+  padding: 0; 
+  background: #f7f7f7; /* light background */
+  color: #111;          /* dark text */
+  cursor: none;         /* hide default cursor for soccer ball */
 }
 
+/* ================================
+   Header / Navigation
+   ================================ */
 header { 
-  background:#fff; 
-  box-shadow:0 2px 6px rgba(0,0,0,0.1); 
-  position:sticky; 
-  top:0; 
-  z-index:10; 
+  background: #fff; 
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
+  position: sticky; 
+  top: 0; 
+  z-index: 10; 
 }
 
 nav { 
-  display:flex; 
-  justify-content:space-between; 
-  align-items:center; 
-  max-width:900px; 
-  margin:auto; 
-  padding:1em; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  max-width: 900px; 
+  margin: auto; 
+  padding: 1em; 
 }
 
 nav ul { 
-  list-style:none; 
-  display:flex; 
-  gap:1em; 
-  margin:0; 
-  padding:0; 
+  list-style: none; 
+  display: flex; 
+  gap: 1em; 
+  margin: 0; 
+  padding: 0; 
 }
 
 nav a { 
-  text-decoration:none; 
-  color:#111; 
-  font-weight:500; 
-}
-
-#hero { 
-  text-align:center; 
-  padding:5em 1em; 
-  background:#cce7ff; 
-}
-
-#hero h1 { 
-  margin:0 0 .5em; 
+  text-decoration: none; 
+  color: #111; 
+  font-weight: 500; 
 }
 
 .buttons a { 
-  margin:0 .5em; 
-  text-decoration:none; 
-  padding:.5em 1em; 
-  background:#111; 
-  color:#fff; 
-  border-radius:6px; 
+  margin: 0 .5em; 
+  text-decoration: none; 
+  padding: .5em 1em; 
+  background: #111; 
+  color: #fff; 
+  border-radius: 6px; 
+  transition: background 0.3s, color 0.3s;
 }
 
+.buttons a:hover {
+  background: #333;
+  color: #fff;
+}
+
+/* ================================
+   Hero Section
+   ================================ */
+#hero { 
+  text-align: center; 
+  padding: 5em 1em; 
+  background: #cce7ff; 
+}
+
+#hero h1 { 
+  margin: 0 0 .5em; 
+}
+
+#hero p {
+  color: #111;
+}
+
+/* ================================
+   Sections & Cards
+   ================================ */
 section { 
-  max-width:900px; 
-  margin:auto; 
-  padding:4em 1em; 
-}
-
-.about-container { 
-  display:flex; 
-  gap:2em; 
-  flex-wrap:wrap; 
-}
-
-.about-container img { 
-  max-width:250px; 
-  border-radius:12px; 
+  max-width: 900px; 
+  margin: auto; 
+  padding: 4em 1em; 
 }
 
 .card-container { 
-  display:flex; 
-  flex-wrap:wrap; 
-  gap:2em; 
-  justify-content:center; 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 2em; 
+  justify-content: center; 
 }
 
 .card { 
-  background:#fff; 
-  padding:1em; 
-  border-radius:12px; 
-  box-shadow:0 2px 8px rgba(0,0,0,0.06); 
-  width:250px; 
-  text-align:center; 
+  background: #fff; 
+  padding: 1em; 
+  border-radius: 12px; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06); 
+  width: 250px; 
+  text-align: center; 
 }
 
+.card img {
+  width: 100%;
+  height: auto;           /* automatically adjusts to keep aspect ratio */
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+}
+
+/* ================================
+   About Section Layout
+   ================================ */
+.about-container {
+  display: flex;          /* side-by-side layout */
+  align-items: center;    /* vertically center image and text */
+  gap: 2em;               /* space between image and text */
+  flex-wrap: wrap;        /* wrap on smaller screens */
+  margin-bottom: 2em;
+}
+
+.about-container img {
+  max-width: 250px;       /* image size */
+  border-radius: 12px; 
+  flex-shrink: 0;         /* prevent image from shrinking too much */
+}
+
+.about-text {
+  flex: 1;                /* text takes remaining space */
+  min-width: 200px;       /* ensures text doesn't shrink too small */
+}
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .about-container {
+    flex-direction: column;  /* stack image and text */
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-text {
+    min-width: auto;          /* remove min-width for mobile */
+  }
+}
+
+/* ================================
+   Footer
+   ================================ */
 footer { 
-  text-align:center; 
-  padding:2em 1em; 
-  background:#fff; 
-  box-shadow:0 -2px 6px rgba(0,0,0,0.1); 
+  text-align: center; 
+  padding: 2em 1em; 
+  background: #fff; 
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1); 
 }
 
 /* ================================
