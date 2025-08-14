@@ -1,64 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Larissa Ala - Personal Website</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Larissa Ala</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <h1>Larissa Ala</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <div id="soccer-cursor"></div>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p><!-- Brief introduction goes here --></p>
-    </section>
+  <script>
+    const cursor = document.getElementById('soccer-cursor');
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <!-- List your projects here -->
-            <li>Project 1</li>
-            <li>Project 2</li>
+    let mouseX = 0;
+    let mouseY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let rotation = 0;
+    const speed = 0.15; // trailing effect
+    let isMoving = false;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      isMoving = true;
+    });
+
+    function animate() {
+      // Smooth trailing
+      currentX += (mouseX - currentX) * speed;
+      currentY += (mouseY - currentY) * speed;
+
+      // Only rotate if moving
+      if (isMoving) {
+        rotation += 10; // degrees per frame
+      }
+
+      cursor.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%) rotate(${rotation}deg)`;
+
+      // Reset moving flag after each frame
+      isMoving = false;
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+
+  <!-- Header / Nav -->
+  <header>
+    <nav>
+      <span class="logo">Larissa Ala</span>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#soccer">Soccer</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <h1>Hi, I’m Larissa 👋</h1>
+    <p>Innovator, builder, and semi-pro soccer player in the Bay Area.</p>
+    <div class="buttons">
+      <a href="#projects">View Projects</a>
+      <a href="#contact">Contact Me</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="about-container">
+      <img src="profile.jpg" alt="Larissa Ala">
+      <div class="about-text">
+        <p>When I’m not coding or building apps, I play semi-pro soccer. Balancing sports and tech has taught me discipline, teamwork, and perseverance.</p>
+        <ul class="stats">
+          <li>💻 3+ years coding</li>
+          <li>📂 5+ projects</li>
+          <li>⚽ Midfielder, Semi-Pro</li>
         </ul>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Resume Section -->
-    <section id="resume">
-        <h2>Resume</h2>
-        <p><!-- Link to or embed your resume --></p>
-    </section>
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="futsoul.png" alt="FutSoul App">
+        <h3>FutSoul</h3>
+        <p>Organizing street-style soccer games in the Bay Area</p>
+        <a href="https://github.com/larissa-ala/FutSoul">View Project</a>
+      </div>
+      <!-- Add more cards as needed -->
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
-            <label for="message">Message:</label>
-            <textarea id="message" name="message"></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
+  <!-- Soccer Section -->
+  <section id="soccer">
+    <h2>Soccer Highlights</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Bay Area Semi-Pro Team</h3>
+        <p>Position: Midfielder</p>
+        <p>Achievements: Team Captain, League MVP</p>
+        <img src="soccer.jpg" alt="Soccer Action">
+      </div>
+      <!-- More soccer cards or gallery -->
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Larissa Ala</p>
-    </footer>
+  <!-- Experience Section -->
+  <section id="experience">
+    <h2>Internships</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Software Intern - Company A</h3>
+        <p>Worked on front-end features, improving user experience.</p>
+      </div>
+      <!-- More experience cards -->
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: larissa@example.com</p>
+    <p>GitHub: <a href="https://github.com/larissa-ala">github.com/larissa-ala</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/larissa-ala/">linkedin.com/in/larissa-ala</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Larissa Ala | Designed with ❤️</p>
+  </footer>
 </body>
 </html>

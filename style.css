@@ -1,49 +1,118 @@
-/* Basic CSS for a personal website */
-
-body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f9f9f9;
-    color: #222;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+body { 
+  font-family: Arial, sans-serif; 
+  margin:0; 
+  padding:0; 
+  background:#f7f7f7; 
+  color:#111; 
+  cursor: none;
 }
 
-header {
-    background: #4a90e2;
-    color: #fff;
-    padding: 2rem 0;
-    text-align: center;
+header { 
+  background:#fff; 
+  box-shadow:0 2px 6px rgba(0,0,0,0.1); 
+  position:sticky; 
+  top:0; 
+  z-index:10; 
 }
 
-h1, h2, h3 {
-    margin-top: 0;
-    font-weight: 600;
+nav { 
+  display:flex; 
+  justify-content:space-between; 
+  align-items:center; 
+  max-width:900px; 
+  margin:auto; 
+  padding:1em; 
 }
 
-main {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+nav ul { 
+  list-style:none; 
+  display:flex; 
+  gap:1em; 
+  margin:0; 
+  padding:0; 
 }
 
-a {
-    color: #4a90e2;
-    text-decoration: none;
+nav a { 
+  text-decoration:none; 
+  color:#111; 
+  font-weight:500; 
 }
 
-a:hover {
-    text-decoration: underline;
+#hero { 
+  text-align:center; 
+  padding:5em 1em; 
+  background:#cce7ff; 
 }
 
-footer {
-    text-align: center;
-    padding: 1rem 0;
-    background: #eee;
-    color: #666;
-    font-size: 0.9rem;
-    margin-top: 2rem;
+#hero h1 { 
+  margin:0 0 .5em; 
+}
+
+.buttons a { 
+  margin:0 .5em; 
+  text-decoration:none; 
+  padding:.5em 1em; 
+  background:#111; 
+  color:#fff; 
+  border-radius:6px; 
+}
+
+section { 
+  max-width:900px; 
+  margin:auto; 
+  padding:4em 1em; 
+}
+
+.about-container { 
+  display:flex; 
+  gap:2em; 
+  flex-wrap:wrap; 
+}
+
+.about-container img { 
+  max-width:250px; 
+  border-radius:12px; 
+}
+
+.card-container { 
+  display:flex; 
+  flex-wrap:wrap; 
+  gap:2em; 
+  justify-content:center; 
+}
+
+.card { 
+  background:#fff; 
+  padding:1em; 
+  border-radius:12px; 
+  box-shadow:0 2px 8px rgba(0,0,0,0.06); 
+  width:250px; 
+  text-align:center; 
+}
+
+footer { 
+  text-align:center; 
+  padding:2em 1em; 
+  background:#fff; 
+  box-shadow:0 -2px 6px rgba(0,0,0,0.1); 
+}
+
+/* ================================
+   Soccer Ball Cursor
+   ================================ */
+#soccer-cursor {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background: url('soccer-cursor.png') no-repeat center center;
+  background-size: contain;
+  pointer-events: none;
+  transform: translate(-50%, -50%) rotate(0deg);
+  z-index: 9999;
+  transition: transform 0.05s linear;
+}
+
+/* Click animation */
+body:active #soccer-cursor {
+  transform: translate(-50%, -50%) scale(1.3);
 }
