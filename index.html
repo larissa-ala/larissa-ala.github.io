@@ -8,42 +8,24 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <div id="soccer-cursor"></div>
+  <div id="cursor-wrapper">
+    <div id="soccer-cursor"></div>
+  </div>
 
   <script>
     const cursor = document.getElementById('soccer-cursor');
 
-    let mouseX = 0;
-    let mouseY = 0;
-    let currentX = 0;
-    let currentY = 0;
-    let rotation = 0;
-    const speed = 0.15; // trailing effect
-    let isMoving = false;
+    // Offsets to align PNG edge with mouse pointer
+    const offsetX = 15; // tweak slightly if needed
+    const offsetY = 4; // tweak slightly if needed
 
-    document.addEventListener('mousemove', e => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      isMoving = true;
-    });
+document.addEventListener('mousemove', e => {
+  const mouseX = e.clientX - offsetX;
+  const mouseY = e.clientY - offsetY;
 
-    function animate() {
-      // Smooth trailing
-      currentX += (mouseX - currentX) * speed;
-      currentY += (mouseY - currentY) * speed;
-
-      // Only rotate if moving
-      if (isMoving) {
-        rotation += 10; // degrees per frame
-      }
-
-      cursor.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%) rotate(${rotation}deg)`;
-
-      // Reset moving flag after each frame
-      isMoving = false;
-
-      requestAnimationFrame(animate);
-    }
+  // Directly move the cursor to mouse position
+  cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+});
 
     animate();
   </script>

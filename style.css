@@ -7,7 +7,11 @@ body {
   padding: 0; 
   background: #f7f7f7; /* light background */
   color: #111;          /* dark text */
-  cursor: none;         /* hide default cursor for soccer ball */
+}
+
+/* Hide the default cursor everywhere */
+body, button, a {
+  cursor: none !important;
 }
 
 /* ================================
@@ -157,22 +161,26 @@ footer {
 /* ================================
    Soccer Ball Cursor
    ================================ */
-#soccer-cursor {
-  position: fixed;
-  width: 40px;
-  height: 40px;
-  background: url('soccer-cursor.png') no-repeat center center;
-  background-size: contain;
-  pointer-events: none;
-  transform: translate(-50%, -50%) rotate(0deg);
-  z-index: 9999;
-  transition: transform 0.05s linear;
-}
+  #cursor-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    z-index: 9999;
+  }
 
-/* Click animation */
-body:active #soccer-cursor {
-  transform: translate(-50%, -50%) scale(1.3);
-}
+  #soccer-cursor {
+    width: 80px; /* match your PNG size */
+    height: 80px;
+    background: url('soccer-cursor.png') no-repeat top left;
+    background-size: contain;
+    transition: transform 0.05s linear;
+  }
+
+  /* Click animation */
+  body:active #soccer-cursor {
+    transform: scale(1.3);
+  }
 
 /* ================================
    Contact Icons
