@@ -107,7 +107,7 @@ section {
 
 .card img {
   width: 100%;
-  height: auto;           /* automatically adjusts to keep aspect ratio */
+  height: auto;      
   object-fit: contain;
   border-radius: 12px;
   display: block;
@@ -177,10 +177,7 @@ footer {
     transition: transform 0.05s linear;
   }
 
-  /* Click animation */
-  body:active #soccer-cursor {
-    transform: scale(1.3);
-  }
+
 
 /* ================================
    Contact Icons
@@ -205,4 +202,56 @@ footer {
 
 .contact-icons a:hover i {
   opacity: 0.8; /* Slight fade on hover */
+}
+
+/* ================================
+   Timeline Styles
+   ================================ */
+
+.timeline {
+  position: relative;
+  margin: 2rem auto;
+  padding: 2rem 0;
+  width: 80%;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: #ccc;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 1rem 2rem;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+.timeline-content {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out; /* applies for both in and out */
+}
+
+.timeline-content.show {
+  opacity: 1;
+  transform: translateY(0);
 }
